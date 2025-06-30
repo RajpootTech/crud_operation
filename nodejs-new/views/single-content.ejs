@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Details</title>
+  <style>
+    .container {
+         width: 300px; margin: auto; padding: 20px; border: 1px solid #ccc; 
+        }
+    p { 
+        margin: 10px 0;
+      }
+    button {
+         margin-top: 10px; padding: 5px 10px; 
+        }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Student Details</h2>
+    <p><strong>Name:</strong> <%= data.name %></p>
+    <p><strong>Age:</strong> <%= data.age %></p>
+    <p><strong>Email:</strong> <%= data.email %></p>
+    <button onclick="window.location.href='/'">Back</button>
+  </div>
+</body>
+</html>
