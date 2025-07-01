@@ -1,0 +1,26 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "King1234",
+    "database": "Majid_test",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "test": {
+    "username": "postgres",
+    "password": "King1234",
+    "database": "Majid_test_test",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  },
+  "production": {
+    "username": "postgres",
+    "password": "King1234",
+    "database": "Majid_test_prod",
+    "host": "127.0.0.1",
+    "port": 5432,
+    "dialect": "postgres"
+  }
+}
