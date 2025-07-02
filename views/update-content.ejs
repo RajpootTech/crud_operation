@@ -1,34 +1,41 @@
 <!-- <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Update Student</title>
-  <style>
-    form {
-         width: 300px; margin: auto; 
-        }
-    label, input {
-         display: block; width: 100%; margin-bottom: 10px; 
-        }
-    button {
-         padding: 8px 15px; 
-        }
-  </style>
+  <meta charset="UTF-8" />
+  <title>Edit User</title>
 </head>
 <body>
-  <h2>Update Student</h2>
-  <form action="/update-content?id=<%= data.id %>" method="POST">
-    <label>Name:</label>
-    <input type="text" name="name" value="<%= data.name %>" required>
-
-    <label>Age:</label>
-    <input type="number" name="age" value="<%= data.age %>" required>
-
-    <label>Email:</label>
-    <input type="email" name="email" value="<%= data.email %>" required>
-
+  <h1>Edit User</h1>
+  <form id="updateForm">
+    <input type="hidden" name="id" value="<%= data.id %>">
+    <label>Name: <input type="text" name="name" value="<%= data.name %>" required></label><br><br>
+    <label>Email: <input type="email" name="email" value="<%= data.email %>" required></label><br><br>
+    <label>Phone: <input type="text" name="phone" value="<%= data.phone %>" required></label><br><br>
     <button type="submit">Update</button>
-    <button onclick="window.location.href='/'" type="button">Cancel</button>
+    <button type="button" onclick="window.location.href='/api/user/get-all-user'">Cancel</button>
   </form>
+
+<script>
+  document.getElementById('updateForm').addEventListener('submit', e => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const id = formData.get('id');
+    const data = {};
+    formData.forEach((val, key) => { if(key !== 'id') data[key] = val });
+
+    fetch(`/api/user/update-user/${id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(result => {
+      alert('User updated!');
+      window.location.href = '/api/user/get-all-user';
+    })
+    .catch(() => alert('Error updating user'));
+  });
+</script>
 </body>
 </html> -->

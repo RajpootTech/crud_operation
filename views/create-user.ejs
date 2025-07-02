@@ -1,0 +1,39 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Add New User</title>
+</head>
+<body>
+  <h1>Add New User</h1>
+  <form id="createForm">
+    <label>Name: <input type="text" name="name" required></label><br><br>
+    <label>Email: <input type="email" name="email" required></label><br><br>
+    <label>Phone: <input type="text" name="phone" required></label><br><br>
+    <button type="submit">Create</button>
+    <button type="button" onclick="window.location.href='/api/user/get-all-user'">Cancel</button>
+  </form>
+
+<script>
+  document.getElementById('createForm').addEventListener('submit', e => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const data = {};
+    formData.forEach((val, key) => data[key] = val);
+
+    fetch('/api/user/create-user', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(data)
+    })
+    .then(res => res.json())
+    .then(result => {
+      alert('User created!');
+      window.location.href = '/api/user/get-all-user';
+    })
+    .catch(() => alert('Error creating user'));
+  });
+</script>
+</body>
+</html> -->
