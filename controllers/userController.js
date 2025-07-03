@@ -5,7 +5,6 @@ const createUser = async (req, res) => {
   try {
     const { name, email, phone } = req.body;
 
-    // Manual validation
     const errors = [];
 
     if (!name || name.trim() === '') {
@@ -21,12 +20,10 @@ const createUser = async (req, res) => {
       errors.push({ field: 'phone', message: 'Phone must be at least 10 digits' });
     }
 
-    // If validation fails
     if (errors.length > 0) {
       return res.status(400).json({ errors });
     }
 
-    // If validation passes
     const newUser = await User.create({ name, email, phone });
     res.status(201).json({ message: 'User created successfully', data: newUser });
 
@@ -95,7 +92,6 @@ module.exports = {
   createUser,
   getAllUsers,
   getUserById,
- 
   updateUser,
   deleteUser,
 };
